@@ -13,7 +13,6 @@ var pageRender = (function () {
         function callback(result) {
             if (!result) return;
             total = parseInt(result['total']);// 获取页面的总页数
-
             var data = result['data'],
                 str = '';
             for (var i = 0, len = data.length; i < len; i++) {
@@ -59,17 +58,17 @@ var pageRender = (function () {
                 tarInn = tar.innerHTML,
                 tarParent = tar.parentNode,
                 tarGrandparent = tarParent.parentNode;
-            //->CONTENT LI OR SPAN
+            //->点击的对象必须是在id为content下面的 li 和 span 标签
             if ((tarTag === 'LI' && tarParent.id === 'content') || (tarTag === 'SPAN' && tarGrandparent.id === 'content')) {
                 if (tarTag === 'SPAN') {
                     tar = tarParent;
                 }
-                var id = tar.getAttribute('data-id');
+                var id = tar.getAttribute('data-id');// 获取当前点击对象的自定义属性data-id的值
                 //window.location.href = 'detail.html?id=' + id;
-                window.open('detail.html?id=' + id);
+                window.open('detail.html?id=' + id);// 跳转到对于的详情页面
                 return;
             }
-            //->NUM BOX LI
+            //->点击的对象是 li 标签并且它的父级节点的id为numBox
             if (tarTag === 'LI' && tarParent.id === 'numBox') {
                 tarInn = parseInt(tarInn);
                 if (tarInn === n) {
@@ -80,7 +79,7 @@ var pageRender = (function () {
                 return;
             }
 
-            //->FOOTER SPAN
+            //->footer 下面的上一页、下一页、第一页、最后一页的 SPAN 绑定
             if (tarTag === 'SPAN' && tarParent.id === 'footer') {
                 if (tarInn === 'FIRST') {
                     if (n === 1) {
@@ -113,14 +112,14 @@ var pageRender = (function () {
     return {
         //模块的入口，初始化设置
         init: function () {
-            //->BIND HTML
+            //->绑定数据
             bindHTML();
-            //->BIND EVENT
+            //->绑定事件
             bindEvent();
-            //->INPUT KEY UP
+            //->输入框输入页数跳转
             pageNum.onkeyup = function (ev) {
                 ev = ev || window.event;
-                //->ENTER
+                //->回车键操作
                 if (ev.keyCode === 13) { //ev.keyCode == 13：代表的是回车键
                     var val = parseFloat(this.value);
                     if (isNaN(val) || val === n) {
