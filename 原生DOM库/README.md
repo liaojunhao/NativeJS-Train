@@ -6,15 +6,15 @@
 
 ```javascript
 function listToArray(likeAry) {
-try {
-return [].slice.call(likeAry, 0);
-} catch (e) {
-var ary = [];
-for (var i = 0; i < likeAry.length; i++) {
-ary[ary.length] = likeAry[i]
-}
-return ary;
-}
+    try {
+      return [].slice.call(likeAry, 0);
+    } catch (e) {
+      var ary = [];
+      for (var i = 0; i < likeAry.length; i++) {
+        ary[ary.length] = likeAry[i]
+      }
+    return ary;
+    }
 }
 ```
 
