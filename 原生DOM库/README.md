@@ -23,7 +23,7 @@ function listToArray(likeAry) {
 
 ```javascript
 function toJSON(str) {
-return "JSON" in window ? JSON.parse(str) : eval("(" + str + ")");
+    return "JSON" in window ? JSON.parse(str) : eval("(" + str + ")");
 }
 ```
 
@@ -32,11 +32,11 @@ return "JSON" in window ? JSON.parse(str) : eval("(" + str + ")");
 
 ```javascript
 function getWin(attr, value) {
-if (typeof  value == "undefined") {
-return document.documentElement[attr] || document.body[attr];
-}
-document.documentElement[attr] = value;
-document.body[attr] = value;
+    if (typeof  value == "undefined") {
+        return document.documentElement[attr] || document.body[attr];
+    }
+    document.documentElement[attr] = value;
+    document.body[attr] = value;
 }
 ```
 
@@ -45,20 +45,20 @@ document.body[attr] = value;
 
 ```javascript
 function getCss(ele, attr) {
-var res = null, reg = null;
-if ("getComputedStyle" in window) {
-res = window.getComputedStyle(ele, null)[attr]
-} else {
-if (attr == "opacity") {
-res = ele.currentStyle["filter"];//alpha(opacity = 50.5)
-reg = /alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)/;
-res = reg.test(res) ? RegExp.$1 / 100 : 1;
-} else {
-res = ele.currentStyle[attr];
-}
-reg = /^[+-]?(\d|[1-9]\d+)(\.\d+)?(px|pt|em|rem)?$/;
-return reg.test(res) ? parseFloat(res) : res;
-}
+    var res = null, reg = null;
+    if ("getComputedStyle" in window) {
+        res = window.getComputedStyle(ele, null)[attr]
+    } else {
+        if (attr == "opacity") {
+            res = ele.currentStyle["filter"];//alpha(opacity = 50.5)
+            reg = /alpha\(opacity\s*=\s*(\d+(?:\.\d+)?)\)/;
+            res = reg.test(res) ? RegExp.$1 / 100 : 1;
+        } else {
+            res = ele.currentStyle[attr];
+        }
+        reg = /^[+-]?(\d|[1-9]\d+)(\.\d+)?(px|pt|em|rem)?$/;
+        return reg.test(res) ? parseFloat(res) : res;
+    }
 }
 ```
 
@@ -67,20 +67,20 @@ return reg.test(res) ? parseFloat(res) : res;
 
 ```javascript
 function offset(ele) {
-var l = ele.offsetLeft;
-var t = ele.offsetTop;
-var p = ele.offsetParent;
-while (1) {
-if (!p || p == document.body) break;
-if (navigator.userAgent.indexOf("MSIE 8.0") == -1) {
-l += p.clientLeft;
-t += p.clientTop;
-}
-l += p.offsetLeft;
-t += p.offsetTop;
-p = p.offsetParent;
-}
-return {l: l, t: t};
+    var l = ele.offsetLeft;
+    var t = ele.offsetTop;
+    var p = ele.offsetParent;
+    while (1) {
+        if (!p || p == document.body) break;
+        if (navigator.userAgent.indexOf("MSIE 8.0") == -1) {
+            l += p.clientLeft;
+            t += p.clientTop;
+        }
+        l += p.offsetLeft;
+        t += p.offsetTop;
+        p = p.offsetParent;
+    }
+    return {l: l, t: t};
 }
 ```
 
@@ -89,26 +89,26 @@ return {l: l, t: t};
 
 ```javascript
 function getChildren(ele, tagName) {
-var children = ele.childNodes;
-var ary = [];
-if (typeof tagName == "undefined") {
-for (var i = 0; i < children.length; i++) {
-var curChild = children[i];
-if (curChild.nodeType == 1) {
-ary.push(curChild);
-}
-}
-} else if (typeof tagName == "string") {
-for (var i = 0; i < children.length; i++) {
-var curChild = children[i];
-if (curChild.nodeType == 1 && curChild.nodeName.toLowerCase() == tagName.toLowerCase()) {
-ary.push(curChild);
-}
-}
-} else {
-throw new Error("第二个参数类型错误");
-}
-return ary;
+    var children = ele.childNodes;
+    var ary = [];
+    if (typeof tagName == "undefined") {
+    for (var i = 0; i < children.length; i++) {
+        var curChild = children[i];
+        if (curChild.nodeType == 1) {
+            ary.push(curChild);
+        }
+    }
+    } else if (typeof tagName == "string") {
+        for (var i = 0; i < children.length; i++) {
+            var curChild = children[i];
+            if (curChild.nodeType == 1 && curChild.nodeName.toLowerCase() == tagName.toLowerCase()) {
+                ary.push(curChild);
+            }
+        }
+    } else {
+        throw new Error("第二个参数类型错误");
+    }
+    return ary;
 }
 ```
 
@@ -118,17 +118,17 @@ return ary;
 
 ```javascript
 function pre(ele) {
-if (ele.previousElementSibling) {
-return ele.previousElementSibling;
-}
-var prev = ele.previousSibling;
-while (prev) {
-if (prev.nodeType == 1) {
-return prev;
-}
-prev = prev.previousSibling;
-}
-return prev;
+    if (ele.previousElementSibling) {
+    return ele.previousElementSibling;
+    }
+    var prev = ele.previousSibling;
+    while (prev) {
+        if (prev.nodeType == 1) {
+            return prev;
+        }
+        prev = prev.previousSibling;
+    }
+    return prev;
 }
 ```
 
@@ -138,13 +138,13 @@ return prev;
 
 ```javascript
 function preAll(ele) {
-var prev = pre(ele); //哥哥元素节点
-var ary = [];
-while (prev) {
-ary.push(prev);
-prev = pre(prev);//再基于哥哥节点再去找哥哥节点
-}
-return ary;
+    var prev = pre(ele); //哥哥元素节点
+    var ary = [];
+    while (prev) {
+        ary.push(prev);
+        prev = pre(prev);//再基于哥哥节点再去找哥哥节点
+    }
+    return ary;
 }
 ```
 
@@ -154,17 +154,17 @@ return ary;
 
 ```javascript
 function next(ele) {
-if (ele.nextElementSibling) {
-return ele.nextElementSibling;
-}
-var nextNode = ele.nextSibling;
-while (nextNode) {
-if (nextNode.nodeType == 1) {
-return nextNode;
-}
-nextNode = nextNode.nextSibling;
-}
-return nextNode;
+    if (ele.nextElementSibling) {
+        return ele.nextElementSibling;
+    }
+    var nextNode = ele.nextSibling;
+    while (nextNode) {
+        if (nextNode.nodeType == 1) {
+            return nextNode;
+        }
+        nextNode = nextNode.nextSibling;
+    }
+    return nextNode;
 }
 ```
 
@@ -174,13 +174,13 @@ return nextNode;
 
 ```javascript
 function nextAll(ele) {
-var nextNode = next(ele);
-var ary = [];
-while (nextNode) {
-ary[ary.length] = nextNode;
-nextNode = next(nextNode);
-}
-return ary;
+    var nextNode = next(ele);
+    var ary = [];
+    while (nextNode) {
+        ary[ary.length] = nextNode;
+        nextNode = next(nextNode);
+    }
+    return ary;
 }
 ```
 
@@ -190,13 +190,13 @@ return ary;
 
 ```javascript
 function sibling(ele) {
-var ary = [];
-//首先判断哥哥元素节点(弟弟元素节点是否存在),存在的话就放在数组里
-var prev = pre(ele);
-var nextNode = next(ele);
-prev ? ary.push(prev) : null;
-nextNode ? ary.push(nextNode) : null;
-return ary;
+    var ary = [];
+    //首先判断哥哥元素节点(弟弟元素节点是否存在),存在的话就放在数组里
+    var prev = pre(ele);
+    var nextNode = next(ele);
+    prev ? ary.push(prev) : null;
+    nextNode ? ary.push(nextNode) : null;
+    return ary;
 }
 ```
 
@@ -206,7 +206,7 @@ return ary;
 
 ```javascript
 function siblings(ele) {
-return preAll(ele).concat(nextAll(ele));
+    return preAll(ele).concat(nextAll(ele));
 }
 ```
 
@@ -215,8 +215,8 @@ return preAll(ele).concat(nextAll(ele));
 
 ```javascript
 function firstChild(ele) {
-var childNodes = getChildren(ele);
-return childNodes.length > 0 ? childNodes[0] : null
+    var childNodes = getChildren(ele);
+    return childNodes.length > 0 ? childNodes[0] : null
 }
 ```
 
@@ -225,8 +225,8 @@ return childNodes.length > 0 ? childNodes[0] : null
 
 ```javascript
 function lastChild(ele) {
-var childNodes = getChildren(ele);
-return childNodes.length > 0 ? childNodes[childNodes.length - 1] : null
+    var childNodes = getChildren(ele);
+    return childNodes.length > 0 ? childNodes[childNodes.length - 1] : null
 }
 ```
 
@@ -235,9 +235,9 @@ return childNodes.length > 0 ? childNodes[childNodes.length - 1] : null
 
 ```javascript
 function prepend(newEle, container) {
-//先判断下是否有第一个子元素节点,如果有,则添加到第一个子元素节点之前,如果没有,则添加到末尾的位置
-var first = firstChild(container);
-first ? container.insertBefore(newEle, first) : container.appendChild(newEle);
+    //先判断下是否有第一个子元素节点,如果有,则添加到第一个子元素节点之前,如果没有,则添加到末尾的位置
+    var first = firstChild(container);
+    first ? container.insertBefore(newEle, first) : container.appendChild(newEle);
 }
 ```
 
@@ -246,13 +246,13 @@ first ? container.insertBefore(newEle, first) : container.appendChild(newEle);
 
 ```javascript
 function insertAfter(newEle, oldEle) {
-//首先获得oldEle之后的元素节点,如果存在,则插入其之前,如果不存在,则插入到最后的最后的位置
-var nextEle = next(oldEle);
-if (nextEle) {
-oldEle.parentNode.insertBefore(newEle, nextEle)
-} else {
-oldEle.parentNode.appendChild(newEle);//插入到oldEle父节点(容器)末尾位置
-}
+    //首先获得oldEle之后的元素节点,如果存在,则插入其之前,如果不存在,则插入到最后的最后的位置
+    var nextEle = next(oldEle);
+    if (nextEle) {
+        oldEle.parentNode.insertBefore(newEle, nextEle)
+    } else {
+        oldEle.parentNode.appendChild(newEle);//插入到oldEle父节点(容器)末尾位置
+    }
 }
 ```
 
@@ -262,8 +262,8 @@ oldEle.parentNode.appendChild(newEle);//插入到oldEle父节点(容器)末尾�
 
 ```javascript
 function hasClass(ele,strClass){
-var reg = new RegExp("(^| +)"+strClass+"( +|$)","g");
-return reg.test(ele.className);
+    var reg = new RegExp("(^| +)"+strClass+"( +|$)","g");
+    return reg.test(ele.className);
 }
 ```
 
@@ -273,12 +273,12 @@ return reg.test(ele.className);
 
 ```javascript
 function addClass(ele,strClass){
-var aryName = className.replace(/(^ +| +$)/g, "").split(/ +/g);
-for (var i = 0; i < aryName.length; i++) {
-if (!hasClass(ele, aryName[i])) {
-ele.className += " " + aryName[i];
-}
-}
+    var aryName = className.replace(/(^ +| +$)/g, "").split(/ +/g);
+    for (var i = 0; i < aryName.length; i++) {
+        if (!hasClass(ele, aryName[i])) {
+            ele.className += " " + aryName[i];
+        }
+    }
 }
 ```
 
@@ -287,19 +287,19 @@ ele.className += " " + aryName[i];
 
 ```javascript
 function removeClass(ele,strClass){
-var aryName = strClass.replace(/(^ +| +$)/g,"").split(/ +/g);
-for(var i = 0;i<aryName.length;i++){
-var curName = aryName[i];
-var reg = new RegExp("(^| +)"+curName+"( +|$)","g");
-if(reg.test(ele.className)){
-ele.className = ele.className.replace(reg," ");
-}
-}
+    var aryName = strClass.replace(/(^ +| +$)/g,"").split(/ +/g);
+    for(var i = 0;i<aryName.length;i++){
+        var curName = aryName[i];
+        var reg = new RegExp("(^| +)"+curName+"( +|$)","g");
+        if(reg.test(ele.className)){
+            ele.className = ele.className.replace(reg," ");
+        }
+    }
 }
 ```
 
 # 总结
-> * 总共18个方法（会持续更新），基本满足了我对DOM的操作，而且代码非常的轻非常小，后期我在写一个ajax库，就可以基本不用jquery了。
+> * 总共18个方法，基本满足了我对DOM的操作，但是还有一些遍历对象|数组、合并对象、格式化URL...等等代码还没有完善（会持续更新），而且代码非常的轻非常小，后期我在写一个ajax库，就可以基本不用jquery了。
 
 ```
 listToArray
