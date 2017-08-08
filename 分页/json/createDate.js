@@ -9,7 +9,7 @@ var ary = []
 
 for (var i=0; i<99; i++) {
     var obj = {};
-    obj["id"] = i;
+    obj["ID"] = i.toString();
     obj["name"] = str1[getRandom(0, 30)] + str2[getRandom(0, 19)] + str2[getRandom(0, 19)]
     obj["sex"] = getRandom(0, 1);
     obj["score"] = getRandom(50, 99);

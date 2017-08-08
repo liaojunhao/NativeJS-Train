@@ -18,14 +18,14 @@
 
  2，获取指定学员的信息
     url: "getInfo"      get
-    参数: ？id=xxx
+    参数: ？ID=xxx
     返回：{
         "code": 0,
         "msg": "失败的描述信息",
         "total": 10     //服务器返回的总页数
         "data": [
             {
-                "id": 1,
+                "ID": 1,
                 "name": "姓名"
                 "sex": 0
                 "score": 90
