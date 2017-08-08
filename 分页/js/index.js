@@ -7,7 +7,7 @@ var pageRender = (function () {
         numBox = document.getElementById('numBox'),
         pageNum = document.getElementById('pageNum');
 
-    //->实现页面的数据绑定
+    //->bindHTML：实现页面的数据绑定以及其他的数据绑定
     function bindHTML() {
         //->回调函数
         function callback(result) {
@@ -49,7 +49,7 @@ var pageRender = (function () {
         });
     }
 
-    //->绑定事件
+    //->bindEvent：事件委托实现分页区域的按钮操作
     function bindEvent() {
         oBox.onclick = function (ev) {
             ev = ev || window.event;
