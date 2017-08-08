@@ -4,14 +4,14 @@ var http = require("http"),
 
 var server1 = http.createServer(function (rep, res) {
     var urlObj = url.parse(rep.url, true),
-        pathname = urlObj.pathname,
+        pathname = urlObj.pathname, //pathname：请求地址
         query = urlObj.query;
-
     //-> 静态资源(项目)文件的请求处理，服务器接受到具体的请求文件后，把文件中的源代码返回给客户端进行渲染即可
-    var reg = /\.(HTML|CSS|JS)/i;
+    var reg = /\.(html|css|js)/i;
     if (reg.test(pathname)) {
-        var suffix = reg.exec(pathname)[1].toUpperCase(),
-            suffixMIME = suffix === "html" ? "text/html" : (suffix === "css" ? "text/css" : "text/javascript");
+        var suffix = reg.exec(pathname)[1].toUpperCase(), //toUpperCase转换成大写
+            suffixMIME = suffix === "HTML" ? "text/html" : (suffix === "CSS" ? "text/css" : "text/javascript");
+
         try {
             res.writeHead(200, {'content-type':suffixMIME+';charset=utf-8;'});
             res.end(fs.readFileSync("." + pathname, "utf8")) // 这里需要注意一下 只要是readFileSync读文件，后面的utf-8都要写成utf8
@@ -23,9 +23,6 @@ var server1 = http.createServer(function (rep, res) {
     }
 
     //-> API数据接口文档中规定的数据请求处理
-    //var data = fs.readFileSync('./json/student.json', 'utf8');
-    //data = JSON.parse(data);
-
     var customPath = "./json/student.json";
     var data = fs.readFileSync(customPath,"utf8");
     data = JSON.parse(data);
