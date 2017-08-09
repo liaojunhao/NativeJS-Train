@@ -31,13 +31,15 @@
 //        }
 //    };
 //    trainFn.say();
-//     公共模块
 
+
+//公共模块
 var uitls = {
     date: function () {
         console.log(new Date);
     }
 };
+
 var flightTicket1 = {
     fn: function () {
         console.log('这是关于机票');

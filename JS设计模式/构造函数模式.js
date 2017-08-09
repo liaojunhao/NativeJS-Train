@@ -2,10 +2,10 @@
 //      var obj2 = new Object();
 var arr = new Array(1, 2, 3, 4);
 console.log(arr);
-//     内置类
+//    内置类
 //       Number,String,Boolean,null,undefined
 //       Array,Object,Date,RegExp....
-//     [] [123] Array
+//    [] [123] Array
 //    {} {name:'zhufeng'} Object;
 //    构造函数目的 创建一个自定义类 并且创建这个类的实例
 //    function personInfo(name, sex, hobby) {
@@ -26,7 +26,7 @@ console.log(arr);
 //         this.age = age;
 ////       默认将这个对象返回
 //    }
-//       var person1 = new CreatePerson('zhufeng', 10); // 构造函数模式 执行 它的返回值就是这个类的实例
+//      var person1 = new CreatePerson('zhufeng', 10); // 构造函数模式 执行 它的返回值就是这个类的实例
 //      var person2 = new CreatePerson('liwenli', 18);
 //    //  person1 和 person2  都是CreatePerson的实例
 //        console.log(person1);
@@ -36,10 +36,12 @@ console.log(arr);
 //    在类中的this.xxx 是给 当前实例添加属性 类中的this是当前实例
 //      类本身也是个函数 类都是函数数据类型
 //      实例是对象数据类型
+
 //      工厂模式和构造函数模式区别
 //      1. 工厂模式 普通函数执行 构造函数通过new 来执行 默认创建一个对象 将其返回作为这个类的实例
 //      2. 执行的时候形成一个私有作用域 -> 形参赋值 -> 预解释 -> 代码 从上到下执行
 //         不同 构造函数模式执行的时候 会默认创建一个对象 也就是默认返回的实例 工厂模式 自己手工创建
+
 //    function CreatePerson(name,age) {
 //        执行之前浏览器默认会创建一个对象
 //        var num = 123;
@@ -74,5 +76,6 @@ function CreatePerson(name, age) {
     }
 }
 //  构造函数模式执行的时候 如果指定返回的 是一个引用数据类型  那么返回的就是这个引用数据类型
+//  在JS中所有的类都是函数数据类型的
 var person1 = new CreatePerson('nihao', 20);
 console.log(person1);
