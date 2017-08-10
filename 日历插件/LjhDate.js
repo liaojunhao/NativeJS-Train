@@ -10,8 +10,6 @@
     "use strict";
     //全局配置，如果采用默认均不需要改动
     var config =  {
-        path: '', //laydate所在路径
-        skin: 'default', //初始化皮肤
         format: 'YYYY-MM-DD', //日期格式
         min: '1900-01-01 00:00:00', //最小日期
         max: '2099-12-31 23:59:59', //最大日期
