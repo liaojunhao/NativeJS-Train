@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>日期插件</title>
+    <link rel="stylesheet" href="./LjhDate.css">
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+    </style>
+</head>
+<body class="laydate_body">
+
+<label class="layui-form-label">日期</label>
+<div class="layui-input-inline">
+    <input required type="text" id="layui-laydate-input" onclick="window.laydate({elem: this, festival: true})" class="layui-input">
+</div>
+
+<!--日期选择器-->
+<!--<div id="laydate_box" class="laydate_box">-->
+    <!--&lt;!&ndash;年份、月份选择&ndash;&gt;-->
+    <!--<div class="laydate_top">-->
+        <!--<div id="laydate_YY" class="laydate_ym laydate_y">-->
+            <!--<a class="laydate_choose laydate_chprev laydate_tab"><cite></cite></a>-->
+            <!--<input id="laydate_y" readonly="" value="2017年">-->
+            <!--<label></label>-->
+            <!--<a class="laydate_choose laydate_chnext laydate_tab"><cite></cite></a>-->
+            <!--<div class="laydate_yms ">-->
+                <!--<a class="laydate_tab laydate_chtop"><cite></cite></a>-->
+                <!--<ul id="laydate_ys">-->
+                    <!--<li y="2010">2010年</li>-->
+                    <!--<li y="2011">2011年</li>-->
+                    <!--<li y="2012">2012年</li>-->
+                    <!--<li y="2013">2013年</li>-->
+                    <!--<li y="2014">2014年</li>-->
+                    <!--<li y="2015">2015年</li>-->
+                    <!--<li y="2016">2016年</li>-->
+                    <!--<li class="laydate_click" y="2017">2017年</li>-->
+                    <!--<li y="2018">2018年</li>-->
+                    <!--<li y="2019">2019年</li>-->
+                    <!--<li y="2020">2020年</li>-->
+                    <!--<li y="2021">2021年</li>-->
+                    <!--<li y="2022">2022年</li>-->
+                    <!--<li y="2023">2023年</li>-->
+                <!--</ul>-->
+                <!--<a class="laydate_tab laydate_chdown"><cite></cite></a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="laydate_ym laydate_m" id="laydate_MM">-->
+            <!--<a class="laydate_choose laydate_chprev laydate_tab"><cite></cite></a>-->
+            <!--<input id="laydate_m" readonly="" value="8月">-->
+            <!--<label></label>-->
+            <!--<a class="laydate_choose laydate_chnext laydate_tab"><cite></cite></a>-->
+            <!--<div class="laydate_yms " id="laydate_ms">-->
+                <!--<span m="0" class="">01月</span>-->
+                <!--<span m="1" class="">02月</span>-->
+                <!--<span m="2" class="">03月</span>-->
+                <!--<span m="3" class="">04月</span>-->
+                <!--<span m="4" class="">05月</span>-->
+                <!--<span m="5" class="">06月</span>-->
+                <!--<span m="6" class="">07月</span>-->
+                <!--<span m="7" class="laydate_click">08月</span>-->
+                <!--<span m="8" class="">09月</span>-->
+                <!--<span m="9" class="">10月</span>-->
+                <!--<span m="10" class="">11月</span>-->
+                <!--<span m="11" class="">12月</span>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;号选择&ndash;&gt;-->
+    <!--<table class="laydate_table" id="laydate_table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>日</th>-->
+            <!--<th>一</th>-->
+            <!--<th>二</th>-->
+            <!--<th>三</th>-->
+            <!--<th>四</th>-->
+            <!--<th>五</th>-->
+            <!--<th>六</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+            <!--<td class="laydate_nothis" y="2017" m="7" d="30">30</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="7" d="31">31</td>-->
+            <!--<td class="" y="2017" m="8" d="1">1</td>-->
+            <!--<td class="" y="2017" m="8" d="2">2</td>-->
+            <!--<td class="" y="2017" m="8" d="3">3</td>-->
+            <!--<td class="" y="2017" m="8" d="4">4</td>-->
+            <!--<td class="" y="2017" m="8" d="5">5</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="" y="2017" m="8" d="6">6</td>-->
+            <!--<td class="" y="2017" m="8" d="7">7</td>-->
+            <!--<td class="" y="2017" m="8" d="8">8</td>-->
+            <!--<td class="" y="2017" m="8" d="9">9</td>-->
+            <!--<td class="laydate_click" y="2017" m="8" d="10">10</td>-->
+            <!--<td class="" y="2017" m="8" d="11">11</td>-->
+            <!--<td class="" y="2017" m="8" d="12">12</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="" y="2017" m="8" d="13">13</td>-->
+            <!--<td class="" y="2017" m="8" d="14">14</td>-->
+            <!--<td class="" y="2017" m="8" d="15">15</td>-->
+            <!--<td class="" y="2017" m="8" d="16">16</td>-->
+            <!--<td class="" y="2017" m="8" d="17">17</td>-->
+            <!--<td class="" y="2017" m="8" d="18">18</td>-->
+            <!--<td class="" y="2017" m="8" d="19">19</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="" y="2017" m="8" d="20">20</td>-->
+            <!--<td class="" y="2017" m="8" d="21">21</td>-->
+            <!--<td class="" y="2017" m="8" d="22">22</td>-->
+            <!--<td class="" y="2017" m="8" d="23">23</td>-->
+            <!--<td class="" y="2017" m="8" d="24">24</td>-->
+            <!--<td class="" y="2017" m="8" d="25">25</td>-->
+            <!--<td class="" y="2017" m="8" d="26">26</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="" y="2017" m="8" d="27">27</td>-->
+            <!--<td class="" y="2017" m="8" d="28">28</td>-->
+            <!--<td class="" y="2017" m="8" d="29">29</td>-->
+            <!--<td class="" y="2017" m="8" d="30">30</td>-->
+            <!--<td class="" y="2017" m="8" d="31">31</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="1">1</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="2">2</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="3">3</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="4">4</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="5">5</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="6">6</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="7">7</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="8">8</td>-->
+            <!--<td class="laydate_nothis" y="2017" m="9" d="9">9</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+    <!--&lt;!&ndash;清空、今天、确定、时间选择&ndash;&gt;-->
+    <!--<div class="laydate_bottom">-->
+        <!--<ul id="laydate_hms" style="display: none;">-->
+            <!--<li class="laydate_sj">时间</li>-->
+            <!--<li><input readonly="">:</li>-->
+            <!--<li><input readonly="">:</li>-->
+            <!--<li><input readonly=""></li>-->
+        <!--</ul>-->
+        <!--<div class="laydate_time laydate_time1 " id="laydate_time">-->
+            <!--<div class="laydte_hsmtex">秒数<span>×</span></div>-->
+            <!--<div id="laydate_hmsno" class="laydate_hmsno">-->
+                <!--<span>0</span><span>1</span><span>2</span>-->
+                <!--<span class="laydate_click">3</span>-->
+                <!--<span>4</span><span>5</span><span>6</span>-->
+                <!--<span>7</span><span>8</span><span>9</span>-->
+                <!--<span>10</span><span>11</span><span>12</span>-->
+                <!--<span>13</span><span>14</span><span>15</span>-->
+                <!--<span>16</span><span>17</span><span>18</span>-->
+                <!--<span>19</span><span>20</span><span>21</span>-->
+                <!--<span>22</span><span>23</span><span>24</span>-->
+                <!--<span>25</span><span>26</span><span>27</span>-->
+                <!--<span>28</span><span>29</span><span>30</span>-->
+                <!--<span>31</span><span>32</span><span>33</span>-->
+                <!--<span>34</span><span>35</span><span>36</span>-->
+                <!--<span>37</span><span>38</span><span>39</span>-->
+                <!--<span>40</span><span>41</span><span>42</span>-->
+                <!--<span>43</span><span>44</span><span>45</span>-->
+                <!--<span>46</span><span>47</span><span>48</span>-->
+                <!--<span>49</span><span>50</span><span>51</span>-->
+                <!--<span>52</span><span>53</span><span>54</span>-->
+                <!--<span>55</span><span>56</span><span>57</span>-->
+                <!--<span>58</span><span>59</span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="laydate_btn">-->
+            <!--<a id="laydate_clear" style="display: block;">清空</a>-->
+            <!--<a id="laydate_today" style="display: block;">今天</a>-->
+            <!--<a id="laydate_ok" style="display: block;">确认</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<script src="LjhDate.js"></script>
+</body>
+</html>
