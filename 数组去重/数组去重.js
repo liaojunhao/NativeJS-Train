@@ -103,3 +103,22 @@ function stringDist(str){
     //return obj;	//返回每一项及其重复的个数
 }
 console.log(typeof stringDist(str))
+
+
+/*
+*
+* 功能描述：数组去重，利用indexOf实现（此方法不兼容IE678）
+* 方法五
+*
+* */
+
+Array.prototype.distinct2 = function () {
+    var arr = []
+    for (var i = 0,len = this.length; i < len; i++) {
+        if (arr.indexOf(this[i]) < 0) {
+            arr.push(this[i])
+        }
+    }
+    return arr
+}
+
