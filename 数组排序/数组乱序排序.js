@@ -12,3 +12,4 @@ function shuffle(a) {
 }
 
 console.log(shuffle(arr))
+console.log(shuffle(arr))
